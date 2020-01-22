@@ -1,4 +1,4 @@
-const inquirer = require("inquirer");
+
 //Propertiesssss
 class Employee {
     constructor(name, id, email) {
