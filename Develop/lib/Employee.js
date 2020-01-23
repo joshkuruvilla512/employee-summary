@@ -27,6 +27,14 @@ class Employee {
     getRole() {
         return "Employee";
     }
+
+    replaceEmployeeInfo(card) {
+        card = card.replace("{{name}}", this.getName());
+        card = card.replace("{{role}}", this.getRole());
+        card = card.replace("{{id}}", this.getId());
+        card = card.replace("{{email}}", this.getEmail());
+        return card;
+    }
 }
 
 module.exports = Employee;

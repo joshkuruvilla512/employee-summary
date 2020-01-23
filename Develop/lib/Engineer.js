@@ -1,4 +1,5 @@
 const Employee = require("./Employee");
+const fs = require("fs");
 
 class Engineer extends Employee {
     // Propertiess
@@ -13,6 +14,16 @@ class Engineer extends Employee {
     }
     getRole() {
         return "Engineer";
+    }
+
+    renderHTML() {
+        var card = fs.readFileSync('./Templates/Engineer.html', {
+            encoding: 'utf8'
+        });
+        card = this.replaceEmployeeInfo(card);
+        card = card.replace("{{github}}", this.getGithub());
+
+        return card;
     }
 }
 module.exports = Engineer;

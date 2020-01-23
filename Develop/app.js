@@ -71,6 +71,7 @@ function getEmployeeInfo() {
 
             if (answers.role === "Manager") {
                 submissions.push(new Manager(answers.name, answers.employeeId, answers.email, answers.officeNumber));
+                roleChoices = ['Engineer', 'Intern'];
             } else if (answers.role === "Engineer") {
                 submissions.push(new Engineer(answers.name, answers.employeeId, answers.email, answers.gitHub));
             } else if (answers.role === "Intern") {
@@ -80,11 +81,21 @@ function getEmployeeInfo() {
             if (answers.another) {
                 getEmployeeInfo();
             } else {
-                //TODO: generate HTML
-                console.log('Done!');
+                end();
             }
 
         });
+}
+
+function end() {
+    console.log('Generating HTML...');
+
+    for (let index = 0; index < submissions.length; index++) {
+        const employee = submissions[index];
+        console.log(employee.renderHTML());
+    }
+
+    console.log('Done!');
 }
 
 getEmployeeInfo();
