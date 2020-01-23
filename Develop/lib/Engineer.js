@@ -4,18 +4,18 @@ class Engineer extends Employee {
     // Propertiess
     constructor(name, id, email, github) {
         // What in the world does Super do??
-        super(name, id, email)
+        super(name, id, email);
         this.github = github;
     }
     // Methodsss
     getGithub() {
-        return this.github
+        return this.github;
     }
     getRole() {
-        return "Engineer"
+        return "Engineer";
     }
 }
-module.exports = Engineer
+module.exports = Engineer;
 
 // function () {
 //     this.ghAccount = ghAccount;

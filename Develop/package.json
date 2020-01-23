@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "directories": {
-    "test": "jest"
+    "test": "test"
   },
   "dependencies": {
     "inquirer": "^7.0.3",
@@ -13,7 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watch --verbose test/*"
   },
   "keywords": [],
   "author": "",
