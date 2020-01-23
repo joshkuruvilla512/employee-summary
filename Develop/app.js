@@ -90,11 +90,17 @@ function getEmployeeInfo() {
 function end() {
     console.log('Generating HTML...');
 
+    var cards = '';
     for (let index = 0; index < submissions.length; index++) {
         const employee = submissions[index];
-        console.log(employee.renderHTML());
+        cards += employee.renderHTML();
     }
-
+    // Replace {{cards}} with cards variable
+    var mainHTML = fs.readFileSync('./Templates/main.html', {
+        encoding: 'utf8'
+    });
+    mainHTML = mainHTML.replace("{{cards}}", cards);
+    fs.writeFileSync('./Output/team.html', mainHTML);
     console.log('Done!');
 }
 
