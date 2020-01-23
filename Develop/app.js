@@ -3,6 +3,14 @@
 
 const fs = require("fs");
 const inquirer = require("inquirer");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+
+
+var roleChoices = ['Manager', 'Engineer', 'Intern'];
+
+var submissions = [];
 
 // Inquirer Questions
 function getEmployeeInfo() {
@@ -18,11 +26,7 @@ function getEmployeeInfo() {
                 type: "list",
                 message: "What is your company role?",
                 name: "role",
-                choices: [
-                    "Manager",
-                    "Engineer",
-                    "Intern"
-                ]
+                choices: roleChoices
             },
             {
                 type: "input",
@@ -57,13 +61,30 @@ function getEmployeeInfo() {
                 when: function (answers) {
                     return answers.role === 'Intern';
                 }
+            },
+            {
+                type: "confirm",
+                name: "another",
+                message: "Do you want to add another?"
             }
-            ////////////// Employee Information
-        ]).then(
-            function (answers) {
+        ]).then(function (answers) {
 
+            if (answers.role === "Manager") {
+                submissions.push(new Manager(answers.name, answers.employeeId, answers.email, answers.officeNumber));
+            } else if (answers.role === "Engineer") {
+                submissions.push(new Engineer(answers.name, answers.employeeId, answers.email, answers.gitHub));
+            } else if (answers.role === "Intern") {
+                submissions.push(new Intern(answers.name, answers.employeeId, answers.email, answers.school));
             }
-        );
+
+            if (answers.another) {
+                getEmployeeInfo();
+            } else {
+                //TODO: generate HTML
+                console.log('Done!');
+            }
+
+        });
 }
 
 getEmployeeInfo();
