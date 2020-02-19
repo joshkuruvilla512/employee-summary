@@ -18,3 +18,6 @@ The report will appear as 'team.html' in the 'output' folder
 
 ## Example
 <img width="919" alt="Screen Shot 2020-01-22 at 11 07 42 PM" src="https://user-images.githubusercontent.com/57737037/72958289-4fa1fd80-3d6c-11ea-8684-e4f3bd84e08c.png">
+
+
+<img width="1107" alt="Screen Shot 2020-02-19 at 9 56 32 AM" src="https://user-images.githubusercontent.com/57737037/74849292-24c0b000-52fe-11ea-84bb-529a2d416d47.png">
